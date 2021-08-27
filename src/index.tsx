@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 // importing routes:
-import { Card, Home, Login, User } from './components';
+import { Card, Home, Login, User, ProductImage } from './components';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // importing firebase:
@@ -35,7 +35,11 @@ ReactDOM.render(
           {/* User Page */}
           <Route path='/User'>
             <User />
-          </Route>0
+          </Route>
+
+          <Route path='/ProductImage'>
+            <ProductImage />
+          </Route>
 
 
         </Switch>

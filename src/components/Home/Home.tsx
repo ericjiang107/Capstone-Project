@@ -43,12 +43,13 @@ export const Home = () => {
             <Button variant="contained" type="submit" component={Link} to={'./User'} >My Account</Button>
 
             {
-                allProductId.length > 0 ? allProductId.map((data) => {
+                allProductId.length > 0 ? allProductId.map((data) => { // ? means if
                     return(
                         <div>{data}</div>
+                        
                     )
                 })
-                :
+                : // else
                 <div>No Products</div>
             }
         </div>
