@@ -28,14 +28,14 @@ ReactDOM.render(
           </Route>
 
           {/* Card Page */}
-          <Route path='/Card'>
+          <Route path='/Card/:productId'>
             <Card />
           </Route>
 
           {/* User Page */}
           <Route path='/User'>
             <User />
-          </Route>
+          </Route>0
 
 
         </Switch>
