@@ -10,4 +10,7 @@ Day 3: Ran into errors where the .env file wasn't being read into the specific f
 Solution: no idea but after attempting to copy and paste the same word over and over again, it magically worked...
 Rested my brain for Day 3. 
 
-Day 4
+Day 4: Updated files and figured out more about how the api works and how to access specific data (i.e. Name, product info, etc). Fixed more bugs 
+and made the image surface on the website. Figured out how to showcase the pricing of each card. Styling needs to be 
+updated but overall, a lot was done today and I learned a lot about how important creating components is and how we can decrease the 
+amount of typing/time using it. 
