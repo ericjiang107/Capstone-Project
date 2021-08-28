@@ -4,29 +4,65 @@ import { Link } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
 // import { GoogleAuthProvider } from "firebase/auth";
 // import { getAuth, signInWithPopup} from "firebase/auth";
+import firebase from 'firebase/app';
+import { useAuth, AuthCheck } from 'reactfire';
+import 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { RouteComponentProps, withRouter } from 'react-router-dom';
 
-interface Props {
-    title: string;
+interface SignInProps {
+    title: string,
+    history: RouteComponentProps["history"],
+    location: RouteComponentProps["location"],
+    match: RouteComponentProps["match"]
 }
 
 
-export const Login = ((props:Props) => {
+export const Login = withRouter((props:SignInProps) => {
+    
+    // const auth = useAuth();
+    // const { history } = props;
+    // const [open, setOpen] = useState(false);
+    
 
-//     const provider = new GoogleAuthProvider();
+    // let handleSnackOpen = () => {
+    //     setOpen(true)
+    // };
 
-//     const auth = getAuth();
-//     signInWithPopup(auth, provider)
-//     .then((result) => {
-//         const credential = GoogleAuthProvider.credentialFromResult(result);
-//         const token = credential.accessToken;
-//         const user = result.user;
-//     }).catch((error) => {
-//         const errorCode = error.code;
-//         const errorMessage = error.message;
-//         const email = error.email;
-//         const credential = GoogleAuthProvider.credentialFromError(error);
-//   });
+    // let handleSnackClose = (event?: React.SyntheticEvent, reason?:string) => {
+    //     if(reason === 'clickaway'){
+    //         return
+    //     }
+    //     setOpen(false)
+    //     history.push('/Home')
+    // };
 
+    // const sign_in = async() => {
+    //     const response = await auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+    //     if(response.user){
+    //         handleSnackOpen()
+    //     }
+    // };
+
+    // const sign_out = async() => {
+    //     await auth.signOut();
+    // }
+
+    
+    // const provider = new GoogleAuthProvider();
+    // const auth = getAuth();
+    // signInWithPopup(auth, provider)
+    // .then((result) => {
+    //     const credential = GoogleAuthProvider.credentialFromResult(result);
+    //     const token = credential.accessToken;
+    //     const user = result.user;
+    //     // ...
+    // }).catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     const email = error.email;
+    //     const credential = GoogleAuthProvider.credentialFromError(error);
+    // });
 
     return (
         <div className="container">
@@ -54,6 +90,11 @@ export const Login = ((props:Props) => {
                             </Link>
                         </form>
                     </div>
+                    {/* <AuthCheck fallback ={
+                        <Button>Sign In With Google</Button>
+                    }>
+                        <Button variant="contained" color="secondary" onClick={sign_out}></Button>
+                    </AuthCheck> */}
     
                 </div>
                 

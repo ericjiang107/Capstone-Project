@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import { CardTag } from '../CardTag';
 
 
 export const Home = () => {
@@ -45,7 +46,7 @@ export const Home = () => {
             {
                 allProductId.length > 0 ? allProductId.map((data) => { // ? means if
                     return(
-                        <div>{data}</div>
+                        <CardTag cardData={data} />
                         
                     )
                 })

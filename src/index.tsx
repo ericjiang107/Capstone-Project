@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 // importing routes:
-import { Card, Home, Login, User, ProductImage } from './components';
+import { Card, Home, Login, User, CardImage } from './components';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // importing firebase:
@@ -12,7 +12,7 @@ import { firebaseConfig } from './firebaseConfig';
 
 ReactDOM.render(
   <React.StrictMode>
-      <FirebaseAppProvider firebaseConfig={firebaseConfig}> {/* New Provider */}
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       {/* Adding Switch Routes below */}
       <Router>
         <Switch>
@@ -37,8 +37,8 @@ ReactDOM.render(
             <User />
           </Route>
 
-          <Route path='/ProductImage'>
-            <ProductImage />
+          <Route path='/CardImage/:productId'>
+            <CardImage />
           </Route>
 
 

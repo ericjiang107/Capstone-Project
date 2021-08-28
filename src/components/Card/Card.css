@@ -1,0 +1,89 @@
+.addStyling {
+    /* padding-top: 30px; */
+    font-size: 20px;
+    text-align: center;
+}
+
+.weight {
+    font-weight: bold;
+}
+
+#lowPrice {
+    background-color: yellow;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+
+#highPrice {
+    background-color: red;
+}
+
+#midPrice {
+    background-color: lightgreen;
+}
+
+#heighter {
+    height: 400px;
+}
+
+.img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.col-4 {
+    text-align: center;
+}
+
+#cardPadding {
+    padding-top: 50px;
+}
+
+#border {
+    border:.5px solid lightgray;
+    border-radius: 15px;
+}
+
+#borderstylingBox {
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+
+.addPadding {
+    padding-top: 30px;
+}
+
+#cardBorder {
+    border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+    padding: 5px;
+}
+
+#moreCardBorder {
+    padding: 5px;
+}
+
+.borderBot {
+    border-bottom: 1px solid lightgray;
+}
+
+.fontSize {
+    font-size: 15px;
+}
+
+.boldStyle {
+    font-weight: bold;
+}
+
+.moreAdding {
+    padding: 20px;
+}
+
+.botPadding {
+    padding-bottom: 5px;
+}
+
+#moreAdding {
+    padding: 20px;
+}
