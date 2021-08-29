@@ -20,3 +20,6 @@ or Property 'signInWithPopup' does not exist on type 'Auth'.ts(2339)... and more
 functions and iterating through each data without the need to create new components/lines. Updated one page with more styling and formatting. 
 Decided to switch the attention to creating the Home page as I now have a working component that can be dragged in without the need to 
 write the code for the images again. Will continue further debugging and figuring out signIn for firebase v9.16.6.
+
+Day 6: Continued error of firebase. Fixed for loop issue so now images will show up along with their respective names. Solution: introduce promise.all into 
+the fetch so it's like a nested fetch within a fetch. Changed/updated routing so it will now route to the exact card page with the correct card ID. 
