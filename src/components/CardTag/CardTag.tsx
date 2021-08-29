@@ -100,9 +100,7 @@ export const CardTag = () => {
                                         <div className="spacing">
                                             {card.cardName}
                                         </div>
-
                                     </Link>
-                                    
                                 </div>
                             )}
                         </div>
