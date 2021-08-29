@@ -6,45 +6,46 @@ import { Card, Home, Login, User, CardImage } from './components';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // importing firebase:
-import { FirebaseAppProvider, AuthCheck } from 'reactfire';
-import 'firebase/auth';
-import { firebaseConfig } from './firebaseConfig';
+import { FirebaseAppProvider, AuthCheck } from 'reactfire'; 
+import 'firebase/auth'; 
+import { firebaseConfig } from './firebaseConfig' 
+
 
 ReactDOM.render(
   <React.StrictMode>
       <FirebaseAppProvider firebaseConfig={firebaseConfig}>
       {/* Adding Switch Routes below */}
-      <Router>
-        <Switch>
+        <Router>
+          <Switch>
 
-          {/* Login Page */}
-          <Route exact path ='/'>
-            <Login title={'SCPC'} />
-          </Route>
+            {/* Login Page */}
+            <Route exact path ='/'>
+              <Login title={'SCPC'} />
+            </Route>
 
-          {/* Home Page */}
-          <Route path='/Home'>
-            <Home />
-          </Route>
+            {/* Home Page */}
+            <Route path='/Home'>
+              <Home />
+            </Route>
 
-          {/* Card Page */}
-          <Route path='/Card/:productId'>
-            <Card />
-          </Route>
+            {/* Card Page */}
+            <Route path='/cards/:productId'>
+              <Card />
+            </Route>
 
-          {/* User Page */}
-          <Route path='/User'>
-            <User />
-          </Route>
+            {/* User Page */}
+            <Route path='/User'>
+              <User />
+            </Route>
 
-          <Route path='/CardImage/:productId'>
-            <CardImage />
-          </Route>
+            <Route path='/CardImage/:productId'>
+              <CardImage />
+            </Route>
 
 
-        </Switch>
-      </Router>
-    </FirebaseAppProvider>
+          </Switch>
+        </Router>
+      </FirebaseAppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

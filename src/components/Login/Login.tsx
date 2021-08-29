@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import firebase from 'firebase/app';
 import { useAuth, AuthCheck } from 'reactfire';
 import 'firebase/auth';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+// import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 
 interface SignInProps {
@@ -23,7 +23,6 @@ export const Login = withRouter((props:SignInProps) => {
     // const auth = useAuth();
     // const { history } = props;
     // const [open, setOpen] = useState(false);
-    
 
     // let handleSnackOpen = () => {
     //     setOpen(true)
@@ -90,12 +89,12 @@ export const Login = withRouter((props:SignInProps) => {
                             </Link>
                         </form>
                     </div>
-                    {/* <AuthCheck fallback ={
+                    {/* <AuthCheck fallback = {
                         <Button>Sign In With Google</Button>
                     }>
                         <Button variant="contained" color="secondary" onClick={sign_out}></Button>
-                    </AuthCheck> */}
-    
+                    </AuthCheck>
+     */}
                 </div>
                 
                 

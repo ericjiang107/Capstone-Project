@@ -1,0 +1,41 @@
+.spacingTop {
+    padding-top: 10px;
+}
+
+.divSpecify {
+    max-width: 230px;
+    max-height: 100px;
+    text-align: center;
+}
+
+.test {
+    border:.5px solid lightgray;
+}
+
+.spacing {
+    padding: 5px;
+}
+
+/* .grid {
+    width: 25%;
+    padding: 10px;
+    height: 300px;
+    float: left;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#column {
+    width: 200px;
+    padding: 10px;
+    height: 400px;
+    float: left;
+} */

@@ -7,7 +7,7 @@ import { CardTag } from '../CardTag';
 export const Home = () => {
     const [allProductId, setAllProductId] = useState([]);
 
-    useEffect(() => {
+    /* useEffect(() => {
         // product by set
         fetch(`https://api.tcgplayer.com/catalog/categories/16/search`, {
             method: 'POST',
@@ -18,7 +18,7 @@ export const Home = () => {
             },
             body: JSON.stringify({ 
                 sort: "ProductName ASC", 
-                limit: 1000, 
+                limit: 10, 
                 offset: 3, 
                 filters: [
                     {
@@ -36,23 +36,15 @@ export const Home = () => {
         .catch((error) => {
             console.error('Error: ', error);
         });
-    }, [])
+    }, []) */
     return (
         <div>
-            <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button>
+            <Button variant="contained" type="submit" component={Link} to={'./Card/:productId'} >Card</Button>
             {/* <Button variant="contained" type="submit" component={Link} to={'./Home'} >Home</Button> */}
             <Button variant="contained" type="submit" component={Link} to={'./User'} >My Account</Button>
 
-            {
-                allProductId.length > 0 ? allProductId.map((data) => { // ? means if
-                    return(
-                        <CardTag cardData={data} />
-                        
-                    )
-                })
-                : // else
-                <div>No Products</div>
-            }
+            <CardTag/>
+
         </div>
     )
 }
