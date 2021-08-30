@@ -23,5 +23,5 @@ write the code for the images again. Will continue further debugging and figurin
 
 Day 6: Continued error of firebase. Fixed for loop issue so now images will show up along with their respective names. Solution: introduce promise.all into 
 the fetch so it's like a nested fetch within a fetch. Changed/updated routing so it will now route to the exact card page with the correct card ID. 
-Updated cards with styling. 
+Updated cards with styling. Updated nav bar with styling and sticky. Added filter search bar for cards section to allow smoother cilent transaction. 
  
