@@ -7,15 +7,20 @@ import Button from '@material-ui/core/Button';
 import { CardImage } from '../../components';
 import './Card.css';
 import { info } from 'console';
+import AccountBoxIcon from '@material-ui/icons/AccountBox';
+import HomeIcon from '@material-ui/icons/Home';
+
 
 const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1.7),
-        background: 'linear-gradient(45deg, #5f2c82 30%, #49a09d 90%)',
-        boxShadow: '0 3px 5px 2px rgba(0, 190, 250, .3)',
         borderRadius: 3,
-        fontSize: '17px'
+        fontSize: '17px',
+        '&:hover': {
+            backgroundColor: '#fff',
+            color: '#3c52b2',
     },
+},
     sticky: {
         position: 'fixed',
         top: 0,
@@ -111,8 +116,8 @@ export const Card = () => {
         <div>
             <nav className={classes.sticky}>
                 {/* <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button> */}
-                <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/User'} >My Account</Button>
-                <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/Home'} >Home</Button>
+                <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/User'} startIcon={<AccountBoxIcon style={{ fontSize: 25 }}/>} >My Account</Button>
+                <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/Home'} startIcon={<HomeIcon style={{ fontSize: 25 }}/>} >Home</Button>
             </nav>
 
             <div className={classes.padding}>

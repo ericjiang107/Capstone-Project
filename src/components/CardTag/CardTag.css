@@ -19,6 +19,7 @@
 
 .test2 {
     width: 75%;
+    float: right;
 }
 
 .filterSpace {
@@ -31,4 +32,12 @@
     padding: 6px;
     font-size: 20px;
     border-radius: 10px;
+}
+
+.paddingTop {
+    padding-top: 40px;
+}
+
+#test {
+    padding-right: 40px;
 }

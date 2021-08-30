@@ -2,14 +2,18 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import HomeIcon from '@material-ui/icons/Home';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1.7),
-        background: 'linear-gradient(45deg, #5f2c82 30%, #49a09d 90%)',
-        boxShadow: '0 3px 5px 2px rgba(0, 190, 250, .3)',
         borderRadius: 3,
-        fontSize: '17px'
+        fontSize: '17px',
+        '&:hover': {
+            backgroundColor: '#fff',
+            color: '#3c52b2',
+    },
     },
     sticky: {
         position: 'fixed',
@@ -20,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     },
     padding: {
         paddingTop: '80px'
+    },
+    float: {
+        float: 'right',
     }
 }))
 
@@ -30,11 +37,15 @@ export const User = () => {
             <nav className={classes.sticky}>
                 {/* <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button> */}
                 {/* <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/User'} >My Account</Button> */}
-                <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/Home'} >Home</Button>
+                <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/Home'} startIcon={<HomeIcon style={{ fontSize: 25 }}/>} >Home</Button>
+                <div className={classes.float}>
+                    <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
+                </div>
             </nav>
             <div className={classes.padding}>
                 Hello
             </div>
+
         </div>
     )
 }
