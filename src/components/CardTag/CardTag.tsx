@@ -7,6 +7,8 @@ export const CardTag = () => {
     const [allProductId, setAllProductId] = useState([]);
     const [cards, setCards] = useState([]);
     const [cardImage, setCardImage] = useState([]);
+    // filter:
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
 
@@ -32,28 +34,6 @@ export const CardTag = () => {
         })
         .then(res => res.json())
         .then(info => {
-
-            /* info.results.map((data: any) => { // ? means if
-                // return product image link thru product id 
-                fetch(`https://api.tcgplayer.com/catalog/products/${data}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': `bearer ${process.env.REACT_APP_TOKEN}`,
-                    },
-                })
-                .then(response => response.json())
-                .then(info => {
-                    // console.log("data: ", data)
-                    console.log("url: ", info.results[0].imageUrl);
-            
-                    setImgUrls([...imgUrls, info.results[0].imageUrl]); // create new array with new url added => triggers creating a img element that we see
-                    // setCardImage(info.results[0].imageUrl)
-                })
-                .catch((error) => {
-                    console.error('Error: ', error);
-                });
-            }); */
 
             Promise.all(info.results.map((productId: any) =>
                 fetch(`https://api.tcgplayer.com/catalog/products/${productId}`, {
@@ -86,12 +66,20 @@ export const CardTag = () => {
 
     return (
         <div className="divSpecify">
-            {/* <div className="row">
-                <div className="col-sm"> */}
+            {/* Filter search bar */}
+            <div className="filterSpace">
+                <input className="styleSearch" type="text" placeholder="Enter Card Name" onChange={(event) => {setSearchTerm(event.target.value)}}/>
+            </div>
                     {
                         cards.length > 0 ?
                         <div className="row test2"> 
-                            {cards.map((card, index) =>
+                            {cards.filter((card) => {
+                                if(searchTerm == '') {
+                                    return card
+                                } else if (card.cardName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                    return card
+                                }
+                            }).map((card, index) =>
                                 <div className="col-3 test">
                                     <Link to={`/cards/${card.id}`}>
                                         <img className="spacingTop" key={index} src={card.imgUrl}></img>
@@ -105,8 +93,6 @@ export const CardTag = () => {
                         : // else
                         <div>Loading</div>
                     } 
-                {/* </div>
-            </div> */}
         </div>
     )
 }

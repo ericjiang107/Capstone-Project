@@ -8,14 +8,29 @@ import { CardImage } from '../../components';
 import './Card.css';
 import { info } from 'console';
 
-// const useStyles = makeStyles((theme) => {
-//     addPadding: {
-//         padding: '10px'
-//     }
-// })
-
+const useStyles = makeStyles((theme) => ({
+    button: {
+        margin: theme.spacing(1.7),
+        background: 'linear-gradient(45deg, #5f2c82 30%, #49a09d 90%)',
+        boxShadow: '0 3px 5px 2px rgba(0, 190, 250, .3)',
+        borderRadius: 3,
+        fontSize: '17px'
+    },
+    sticky: {
+        position: 'fixed',
+        top: 0,
+        zIndex: 100,
+        width: '100%',
+        background: '#e0e0e0'
+    },
+    padding: {
+        paddingTop: '50px'
+    }
+}))
 
 export const Card = () => {
+
+    const classes = useStyles();
 
     const { productId } = useParams<{ productId: string }>()
     const [cardImage, setCardImage] = useState()
@@ -94,11 +109,13 @@ export const Card = () => {
 
     return (
         <div>
-            {/* <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button> */}
-            <Button variant="contained" type="submit" component={Link} to={'/Home'} >Home</Button>
-            <Button variant="contained" type="submit" component={Link} to={'/User'} >My Account</Button>
+            <nav className={classes.sticky}>
+                {/* <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button> */}
+                <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/User'} >My Account</Button>
+                <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/Home'} >Home</Button>
+            </nav>
 
-
+            <div className={classes.padding}>
                 <div className="row justify-content-center" id="cardPadding">
                     <div className="col-4">
                         <CardImage/>
@@ -146,6 +163,7 @@ export const Card = () => {
                             </div>
                     </div>
                 </div>
+            </div>
         </div>
     )
 }

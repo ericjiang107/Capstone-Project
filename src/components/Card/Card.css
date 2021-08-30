@@ -87,3 +87,7 @@
 #moreAdding {
     padding: 20px;
 }
+
+.button {
+    float: right;
+}
