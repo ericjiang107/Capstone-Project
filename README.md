@@ -31,3 +31,6 @@ Continued error of firebase. Fixed for loop issue so now images will show up alo
 the fetch so it's like a nested fetch within a fetch. Changed/updated routing so it will now route to the exact card page with the correct card ID. 
 Updated cards with styling. Updated nav bar with styling and sticky. Added filter search bar for cards section to allow smoother cilent transaction. 
  
+**`Day 7:`** 
+Added more changes to the nav bar and filter search bar. Found a work around to parse through different set names for differnt cards specific to the
+designated set and display their information. 
