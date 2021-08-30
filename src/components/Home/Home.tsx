@@ -42,8 +42,10 @@ export const Home = () => {
             <Button variant="contained" type="submit" component={Link} to={'./Card/:productId'} >Card</Button>
             {/* <Button variant="contained" type="submit" component={Link} to={'./Home'} >Home</Button> */}
             <Button variant="contained" type="submit" component={Link} to={'./User'} >My Account</Button>
-
-            <CardTag/>
+            <div className="container-fluid px-0">
+                <CardTag/>
+            </div>
+            
 
         </div>
     )

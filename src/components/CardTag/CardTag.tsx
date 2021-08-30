@@ -77,8 +77,6 @@ export const CardTag = () => {
             )).then(cards => {
                 setCards(cards);
             });
-
-
         })
         .catch((error) => {
             console.error('Error: ', error);
@@ -92,9 +90,9 @@ export const CardTag = () => {
                 <div className="col-sm"> */}
                     {
                         cards.length > 0 ?
-                        <div> 
+                        <div className="row test2"> 
                             {cards.map((card, index) =>
-                                <div className="test">
+                                <div className="col-3 test">
                                     <Link to={`/cards/${card.id}`}>
                                         <img className="spacingTop" key={index} src={card.imgUrl}></img>
                                         <div className="spacing">
