@@ -38,4 +38,4 @@ reinstalled again...suprsingly it worked...). Updated filter options and fixed i
 points for each card set as well... Today was a really good day. 
 
 **`Day 8:`** 
-Added window.scrollTo function to allow for smoother transisiton when switching sets. More styling.
+Added window.scrollTo function to allow for smoother transisiton when switching sets. More styling and updated the graph with labels and proper styling. 
