@@ -36,3 +36,6 @@ Added more changes to the nav bar and filter search bar. Found a work around to 
 designated set and display their information. Finally fixed google authentication signin (solution: uninstalled everything for the 6th time and 
 reinstalled again...suprsingly it worked...). Updated filter options and fixed issue of filter referesh on set cards update. Finaliazed chart with price
 points for each card set as well... Today was a really good day. 
+
+**`Day 8:`** 
+Added window.scrollTo function to allow for smoother transisiton when switching sets. More styling.
