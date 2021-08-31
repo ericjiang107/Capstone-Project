@@ -8,6 +8,7 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { setConstantValue } from 'typescript';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { Spinner } from 'react-bootstrap';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -16,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 3,
         fontSize: '17px',
         '&:hover': {
+
             backgroundColor: '#fff',
             color: '#3c52b2',
     },
@@ -54,10 +56,14 @@ export const CardTag = () => {
     const [searchTerm, setSearchTerm] = useState('');
     // For card set selector:
     const [Value, setValue] = useState('');
+    const [test, setTest] = useState("A Brush with the Legends")
     const handleSelect=(e: any)=>{
         console.log(e);
         setValue(e)
+        setTest(e)
+        console.log(test)
     };
+
 
     useEffect(() => {
 
@@ -76,7 +82,7 @@ export const CardTag = () => {
                 filters: [
                     {
                         "name": "SetName",
-                        "values": ["Glorious Bravery of Radiant Sword"]
+                        "values": [test]
                     }
                 ]
             }),
@@ -111,7 +117,7 @@ export const CardTag = () => {
             console.error('Error: ', error);
         });
 
-    }, [])
+    }, [test])
 
     return (
         <div>
@@ -130,6 +136,7 @@ export const CardTag = () => {
                         className={classes.test2}
                         onSelect={handleSelect}
                             >
+                                <Dropdown.Item eventKey="A Brush with the Legends">A Brush with the Legends</Dropdown.Item>
                                 <Dropdown.Item eventKey="Genesis of the Five Greats">Genesis of the Five Greats</Dropdown.Item>
                                 <Dropdown.Item eventKey="D-SS01: Festival Collection 2021">D-SS01: Festival Collection 2021</Dropdown.Item>
                                 <Dropdown.Item eventKey="Advance of Intertwined Stars">Advance of Intertwined Stars</Dropdown.Item>
@@ -173,12 +180,16 @@ export const CardTag = () => {
                             )}
                         </div>
                         : // else
-                        <div>Loading</div>
+                        <div>
+                            <Spinner animation="border" role="status">
+                                <span className="visually-hidden">Loading...</span>
+                            </Spinner>
+                        </div>
                     } 
             </div>
-            <div className={`${classes.sticky2}`}>
+            {/* <div className={`${classes.sticky2}`}>
                 Current Set: {Value}
-            </div>
+            </div> */}
         </div>
     )
 }

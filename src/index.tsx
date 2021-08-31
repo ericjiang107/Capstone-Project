@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 // importing routes:
-import { Card, Home, Login, User, CardImage } from './components';
+import { Card, Home, Login, User, CardImage, Signup } from './components';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // importing firebase:
@@ -40,6 +40,10 @@ ReactDOM.render(
 
             <Route path='/CardImage/:productId'>
               <CardImage />
+            </Route>
+
+            <Route path='/Signup'>
+              <Signup />
             </Route>
 
 

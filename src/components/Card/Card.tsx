@@ -9,6 +9,8 @@ import './Card.css';
 import { info } from 'console';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import HomeIcon from '@material-ui/icons/Home';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,24 +39,41 @@ export const Card = () => {
 
     const classes = useStyles();
 
-    const { productId } = useParams<{ productId: string }>()
-    const [cardImage, setCardImage] = useState()
-    const [cardLowPrice, setCardLowPrice] = useState()
-    const [cardMidPrice, setCardMidPrice] = useState()
-    const [cardHighPrice, setCardHighPrice] = useState()
-    const [cardMarketPrice, setCardMarketPrice] = useState()
-    const [cardName, setCardName] = useState()
-    const [cardEffect, setCardEffect] = useState()
-    const [cardUnit, setCardUnit] = useState()
-    const [cardGrade, setCardGrade] = useState()
-    const [cardSkill, setCardSkill] = useState()
-    const [cardNation, setCardNation] = useState()
-    const [cardRace, setCardRace] = useState()
-    const [cardPower, setCardPower] = useState()
-    const [cardShield, setCardShield] = useState()
-    const [cardCric, setCardCric] = useState()
-    const [cardTrigger, setCardTrigger] = useState()
-    const [cardFlavor, setCardFlavor] = useState()
+    const { productId } = useParams<{ productId: string }>();
+    const [cardImage, setCardImage] = useState();
+    const [cardLowPrice, setCardLowPrice] = useState();
+    const [cardMidPrice, setCardMidPrice] = useState();
+    const [cardHighPrice, setCardHighPrice] = useState();
+    const [cardMarketPrice, setCardMarketPrice] = useState();
+    const [cardName, setCardName] = useState();
+    const [cardEffect, setCardEffect] = useState();
+    const [cardUnit, setCardUnit] = useState();
+    const [cardGrade, setCardGrade] = useState();
+    const [cardSkill, setCardSkill] = useState();
+    const [cardNation, setCardNation] = useState();
+    const [cardRace, setCardRace] = useState();
+    const [cardPower, setCardPower] = useState();
+    const [cardShield, setCardShield] = useState();
+    const [cardCric, setCardCric] = useState();
+    const [cardTrigger, setCardTrigger] = useState();
+    const [cardFlavor, setCardFlavor] = useState();
+
+
+    const [data, setData] = useState([
+        // test sample data
+        {
+            price: 5.7,
+        },
+        {
+            price: 0.1,
+        },
+        {
+            price: 0.15,
+        },
+        {
+            price: 0.2,
+        }
+      ]);
 
     // For Image:
     useEffect(() => {
@@ -108,6 +127,23 @@ export const Card = () => {
             console.error('Error: ', error);
         });
 
+        // product price
+        fetch(`https://api.tcgplayer.com/catalog/products/${productId}/productsalsopurchased `, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `bearer ${process.env.REACT_APP_TOKEN}`,
+            },
+        })
+        .then(response => response.json())
+        .then(info => {
+            let data = info.results.map((record: any) => { return { price: record.lowestPrice } } );
+            setData(data);
+        })
+        .catch((error) => {
+            console.error('Error: ', error);
+        });
+
     }, [])
 
 
@@ -145,27 +181,35 @@ export const Card = () => {
                                 Market Price:
                             </div>
                             <div className="borderBot" id="moreCardBorder">${ cardMarketPrice }</div>
+                            <div className='row justify-content-center' id="style">
+                                <LineChart width={500} height={300} data={data}>
+                                    <XAxis dataKey="date"/>
+                                    <YAxis dataKey="price"/>
+                                    <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
+                                    <Line type="monotone" dataKey="price" stroke="#8884d8" />
+                                </LineChart>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    <div className="row justify-content-center">
-                        <div className="col-8" id="moreAdding">
-                            <div className="card">
-                                <div className="card-header">
-                                    Card Details
-                                </div>
-                                <div className="moreAdding">
-                                    <h5 className="botPadding">{ cardName }</h5>
-                                    <div className="fontSize" >
-                                        <p className=""> <span className="boldStyle">Skill:</span> { cardEffect } </p>
-                                    </div>
-                                    <p className=""> Unit/Grade/Skill: { cardUnit } / { cardGrade } / { cardSkill }</p>
-                                    <p> Nation/Race: { cardNation } / { cardRace }</p>
-                                    <p> Power/Shield: { cardPower } / { cardShield } </p>
-                                    <p> Critical/Trigger: { cardCric } / { cardTrigger } </p>
-                                    <p> Flavor: { cardFlavor } </p>
-                                </div>
+                <div className="row justify-content-center">
+                    <div className="col-8" id="moreAdding">
+                        <div className="card">
+                            <div className="card-header">
+                                Card Details
                             </div>
+                            <div className="moreAdding">
+                                <h5 className="botPadding">{ cardName }</h5>
+                                <div className="fontSize" >
+                                    <p className=""> <span className="boldStyle">Skill:</span> { cardEffect } </p>
+                                </div>
+                                <p className=""> Unit/Grade/Skill: { cardUnit } / { cardGrade } / { cardSkill }</p>
+                                <p> Nation/Race: { cardNation } / { cardRace }</p>
+                                <p> Power/Shield: { cardPower } / { cardShield } </p>
+                                <p> Critical/Trigger: { cardCric } / { cardTrigger } </p>
+                                <p> Flavor: { cardFlavor } </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
