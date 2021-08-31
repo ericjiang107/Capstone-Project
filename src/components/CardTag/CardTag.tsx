@@ -33,17 +33,20 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '80px'
     },
     sticky2: {
-        position: 'fixed',
-        top: 150,
-        zIndex: 100,
         padding: '20px',
-        fontSize: '20px',
-        // paddingTop: '400px'
+        fontSize: '18px',
     },
     test2: {
         padding: '10px',
         paddingRight: '20px'
-    }
+    },
+    // topScreen: {
+    //     window.scroll({
+    //         top: 0,
+    //         left: 0,
+    //         behavior: 'smooth'
+    //     })
+    // }
 }))
 
 
@@ -55,7 +58,7 @@ export const CardTag = () => {
     // filter:
     const [searchTerm, setSearchTerm] = useState('');
     // For card set selector:
-    const [Value, setValue] = useState('');
+    const [Value, setValue] = useState('A Brush with the Legends');
     const [test, setTest] = useState("A Brush with the Legends")
     const handleSelect=(e: any)=>{
         console.log(e);
@@ -63,7 +66,6 @@ export const CardTag = () => {
         setTest(e)
         console.log(test)
     };
-
 
     useEffect(() => {
 
@@ -89,7 +91,11 @@ export const CardTag = () => {
         })
         .then(res => res.json())
         .then(info => {
-
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+            
             Promise.all(info.results.map((productId: any) =>
                 fetch(`https://api.tcgplayer.com/catalog/products/${productId}`, {
                     method: 'GET',
@@ -150,9 +156,22 @@ export const CardTag = () => {
                                 <Dropdown.Item eventKey="V-SS03: Festival Collection">V-SS03: Festival Collection</Dropdown.Item>
                                 <Dropdown.Item eventKey="Raging Clash of the Blade Fangs">Raging Clash of the Blade Fangs</Dropdown.Item>
                                 <Dropdown.Item eventKey="Ultimate Stride">Ultimate Stride</Dropdown.Item>
+                                <Dropdown.Item eventKey="Silverdust Blaze">Silverdust Blaze</Dropdown.Item>
+                                <Dropdown.Item eventKey="Soul Strike Against The Supreme">Soul Strike Against The Supreme</Dropdown.Item>
+                                <Dropdown.Item eventKey="Dragon King's Awakening">Dragon King's Awakening</Dropdown.Item>
+                                <Dropdown.Item eventKey="Sovereign Star Dragon">Sovereign Star Dragon</Dropdown.Item>
+                                <Dropdown.Item eventKey="G-CB05: Prismatic Divas">G-CB05: Prismatic Divas</Dropdown.Item>
+                                <Dropdown.Item eventKey="Generation Stride">Generation Stride</Dropdown.Item>
+                                <Dropdown.Item eventKey="Infinite Rebirth">Infinite Rebirth</Dropdown.Item>
+                                <Dropdown.Item eventKey="Blue Storm Armada">Blue Storm Armada</Dropdown.Item>
+                                <Dropdown.Item eventKey="Seal Dragons Unleashed">Seal Dragons Unleashed</Dropdown.Item>
+                                <Dropdown.Item eventKey="Rampage of the Beast King">Rampage of the Beast King</Dropdown.Item>
                         </DropdownButton>
                     </ul>
                     <input className="styleSearch" type="text" placeholder="Enter Card Name" onChange={(event) => {setSearchTerm(event.target.value)}}/>
+                        <div className={`${classes.sticky2}`}>
+                            Current Set: {Value}
+                        </div>
                 </div>
                 <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </nav>
@@ -180,16 +199,16 @@ export const CardTag = () => {
                             )}
                         </div>
                         : // else
-                        <div>
-                            <Spinner animation="border" role="status">
-                                <span className="visually-hidden">Loading...</span>
+                        <div id="loader">
+                            <Spinner animation="border" role="status" className="expand">
+                                <span className="visually-hidden"></span>
                             </Spinner>
+                            <div className="fonty">
+                                Loading...
+                            </div>
                         </div>
                     } 
             </div>
-            {/* <div className={`${classes.sticky2}`}>
-                Current Set: {Value}
-            </div> */}
         </div>
     )
 }

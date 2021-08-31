@@ -41,3 +41,15 @@
 #test {
     padding-right: 40px;
 }
+
+#loader {
+    padding-top: 200px;
+}
+
+.expand {
+    padding: 50px;
+}
+
+.fonty {
+    font-size: 25px;
+}

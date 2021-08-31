@@ -10,6 +10,7 @@ import { info } from 'console';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import HomeIcon from '@material-ui/icons/Home';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 
@@ -32,6 +33,9 @@ const useStyles = makeStyles((theme) => ({
     },
     padding: {
         paddingTop: '50px'
+    },
+    float: {
+        float: 'right',
     }
 }))
 
@@ -87,6 +91,10 @@ export const Card = () => {
         })
         .then(response => response.json())
         .then(info => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
             // console.log(info)
             setCardImage(info.results[0].imageUrl)
             setCardName(info.results[0].name)
@@ -146,20 +154,23 @@ export const Card = () => {
 
     }, [])
 
-
-
     return (
         <div>
             <nav className={classes.sticky}>
                 {/* <Button variant="contained" type="submit" component={Link} to={'./Card'} >Card</Button> */}
                 <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/User'} startIcon={<AccountBoxIcon style={{ fontSize: 25 }}/>} >My Account</Button>
                 <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/Home'} startIcon={<HomeIcon style={{ fontSize: 25 }}/>} >Home</Button>
+                <div className={classes.float}>
+                    <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
+                </div>
             </nav>
 
             <div className={classes.padding}>
                 <div className="row justify-content-center" id="cardPadding">
                     <div className="col-4">
-                        <CardImage/>
+                        <div id="trial">
+                            <CardImage/>
+                        </div>
                     </div>
                     <div className="col-4" id="border">
                         <div className="addStyling">
