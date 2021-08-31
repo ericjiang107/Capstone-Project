@@ -193,12 +193,14 @@ export const Card = () => {
                             </div>
                             <div className="borderBot" id="moreCardBorder">${ cardMarketPrice }</div>
                             <div className='row justify-content-center' id="style">
+                                {/* <div className="test"> */}
                                 <LineChart width={500} height={300} data={data}>
-                                    <XAxis dataKey="date"/>
-                                    <YAxis dataKey="price"/>
+                                    <XAxis label="Over-Time" dataKey="date"/>
+                                    <YAxis label={{ value: 'Prices', angle: -90, position: 'insideLeft' }} padding={{ bottom: 20 }} dataKey="price"/>
                                     <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
                                     <Line type="monotone" dataKey="price" stroke="#8884d8" />
                                 </LineChart>
+                                {/* </div> */}
                             </div>
                         </div>
                     </div>
