@@ -12,39 +12,39 @@ export const App = () => {
     const auth = getAuth(useFirebaseApp());
     return (
       <AuthProvider sdk={auth}>
-      <FirestoreProvider sdk={firestoreInstance}>
-        <Router>
-          <Switch>
-            {/* Login Page */}
-            <Route exact path ='/login'>
-              <Login title={'SCPC'} />
-            </Route>
+        <FirestoreProvider sdk={firestoreInstance}>
+          <Router>
+            <Switch>
+              {/* Login Page */}
+              <Route exact path ='/'>
+                <Login title={'SCPC'} />
+              </Route>
 
-            {/* Home Page */}
-            <Route path='/Home'>
-              <Home />
-            </Route>
+              {/* Home Page */}
+              <Route path='/Home'>
+                <Home />
+              </Route>
 
-            {/* Card Page */}
-            <Route path='/cards/:productId'>
-              <Card />
-            </Route>
+              {/* Card Page */}
+              <Route path='/cards/:productId'>
+                <Card />
+              </Route>
 
-            {/* User Page */}
-            <Route path='/User'>
-              <User />
-            </Route>
+              {/* User Page */}
+              <Route path='/User'>
+                <User />
+              </Route>
 
-            <Route path='/CardImage/:productId'>
-              <CardImage />
-            </Route>
+              <Route path='/CardImage/:productId'>
+                <CardImage />
+              </Route>
 
-            <Route path='/Signup'>
-              <Signup />
-            </Route>
-          </Switch>
-        </Router>
-      </FirestoreProvider>
+              <Route path='/Signup'>
+                <Signup />
+              </Route>
+            </Switch>
+          </Router>
+        </FirestoreProvider>
       </AuthProvider>
     );
   }

@@ -11,6 +11,7 @@ import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const Alert = (props:AlertProps) => {
     return <MuiAlert elevation={6} variant='filled' {...props} />;
 }
@@ -51,7 +52,7 @@ export const Login = withRouter((props:SignInProps) => {
 
     let handleSnackClose = (event?: React.SyntheticEvent, reason?:string) => {
         if(reason === 'clickaway'){
-            return
+            return;
         }
         
         setOpen(false)
@@ -61,25 +62,26 @@ export const Login = withRouter((props:SignInProps) => {
     const sign_in = async () => {
         
         const response = await signInWithPopup(auth, provider);
-        debugger;
+
         const user = response.user;
         
         if (user) {
             // store the user into firebase
-            //after we have the credential - lets check if the user exists in firestore
+            // after we have the credential - lets check if the user exists in firestore
             var docRef = doc(firestore, 'users', auth.currentUser.uid);
             const docSnap = await getDoc(docRef);
             
             
             if (docSnap.exists()) {
-            //user exists then just update the login time
-                return user;
+                //user exists then just update the login time
+                
+                // return user;
             } else {
-            //user doesn't exist - create a new user in firestore
+                //user doesn't exist - create a new user in firestore
                 addNewUserToFirestore(user);
             }
             
-            handleSnackOpen()
+            handleSnackOpen();
         }
     };
 
@@ -108,43 +110,20 @@ export const Login = withRouter((props:SignInProps) => {
                     <h1>Single Card Price Checker</h1>
                 </div>
             </div>
-            <div className="row justify-content-center">
-                <div className="col-lg-8 col-md-12 cardboxTop">
-                    <div className="card"> 
-                        <form className="padCard">
-                            <div className="form-group">
-                                <label htmlFor="#">Email</label>
-                                <input className="form-control" type="email" />
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="#">Password</label>
-                                <input className="form-control" type="password" />
-                            </div>
-                            <Link to="/Home">
-                                <Button type="submit" className="btn btn-primary float-right" onClick={() => console.log('clicked')} >
-                                    Submit
-                                </Button>
-                            </Link>
-                        </form>
-                    </div>
-                    <AuthCheck fallback={
-                        <div id="align">
+                    <div id="align">
+                        <AuthCheck fallback={
                             <Button className={classes.buttonStyle} onClick={sign_in}>Sign In With Google</Button>
-                        </div>
-                        }>
-                        <Button variant='contained' color='secondary' onClick={sign_out}>Sign Out</Button>
-                    </AuthCheck>
+                            }>
+                            <Button color='primary' onClick={sign_out}>Sign Out</Button>
+                        </AuthCheck>
+                    </div>
                     <Snackbar message={'Success'} open={open} autoHideDuration={5000} onClose={handleSnackClose}>
                         <Alert onClose={handleSnackClose} severity="success">
                             Successful Sign In - Redirect in 5 secs
                         </Alert>
                     </Snackbar>
-                </div>
-                
-                
-            </div>
-                
-            
         </div>
+
+                
     )
 })

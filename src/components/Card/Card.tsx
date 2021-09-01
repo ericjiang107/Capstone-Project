@@ -13,6 +13,8 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import BookmarkIcon from '@material-ui/icons/BookmarkBorder';
 
+import { useAuth, useFirestore } from 'reactfire';
+import { doc, updateDoc, arrayUnion } from '@firebase/firestore';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -46,6 +48,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 export const Card = () => {
+
+    const auth = useAuth();
+    const firestore = useFirestore();
 
     const classes = useStyles();
 
@@ -160,12 +165,14 @@ export const Card = () => {
 
     }, []);
 
-    const handleAddClick = (event: any) => {
-        // get the user id from local storage
+    const handleAddClick = async (event: any) => {
+        // get the current user id and current card id
+        const userId = auth.currentUser.uid;
+        const cardId = parseInt(productId);
 
-        // send a fetch request to the backend to add this card to the user's favorites
+        // add card id to current user's favs
+        await updateDoc(doc(firestore, "users", userId), { favorites: arrayUnion(cardId)});
 
-        // POST /users/:id/cards
     }
 
     return (
@@ -186,7 +193,7 @@ export const Card = () => {
                             <CardImage/>
                             <div className={classes.moreT}>
                             {/* {handleAddClick} */}
-                                <Button className={classes.wordFont} variant="contained" onClick={() => console.log('clicked')} color="primary" type="submit" >Add Card to Account</Button>
+                                <Button className={classes.wordFont} variant="contained" onClick={handleAddClick} color="secondary" type="submit" >Add Card to Account</Button>
                             </div>
             
                         </div>

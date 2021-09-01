@@ -175,7 +175,7 @@ export const CardTag = () => {
                             Current Set: {Value}
                         </div>
                 </div>
-                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/login'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
+                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </nav>
             </nav>
 
