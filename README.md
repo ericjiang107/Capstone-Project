@@ -39,3 +39,6 @@ points for each card set as well... Today was a really good day.
 
 **`Day 8:`** 
 Added window.scrollTo function to allow for smoother transisiton when switching sets. More styling and updated the graph with labels and proper styling. 
+Struggling to figure out way to connect front end to back end using either React or Flask. Figured out that I can connect backend and frontend via 
+Firestore since we are using Google authentication. Still accounting errors (again with firebase...) seems like to be able to connect both, we will
+have to update firebase to it's newest version. 
