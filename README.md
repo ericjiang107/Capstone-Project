@@ -44,6 +44,6 @@ Firestore since we are using Google authentication. Still accounting errors (aga
 have to update firebase to it's newest version. 
 
 **`Day 9:`** 
-Connected firestore backend to react frontend to access user Name. Created function to add card (productId) to firestore and store data. Then connected
-that data to User page and showcase the parsed productId card image and name. Also created a remove function which does the same thing as adding
-the card. 
+Connected firestore backend to react frontend to access user Name. Solution: continued looking for documentation from the firestore site.
+Created function to add card (productId) to firestore and store data. Then connected that data to User page and showcase the parsed productId 
+card image and name. Also created a remove function which does the same thing as adding the card. 
