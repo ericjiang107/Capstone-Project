@@ -2,11 +2,9 @@ import React, {useState} from 'react';
 import './login.css';
 import { Link } from 'react-router-dom';
 import Button from "react-bootstrap/Button";
-// import { GoogleAuthProvider } from "firebase/auth";
-// import { getAuth, signInWithPopup} from "firebase/auth";
-import firebase from 'firebase/app';
-import { useAuth, AuthCheck } from 'reactfire';
-import 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { useAuth, AuthCheck, useFirestore } from 'reactfire';
 // import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
@@ -41,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
 export const Login = withRouter((props:SignInProps) => {
     const classes = useStyles();
     const auth = useAuth();
+    const firestore = useFirestore();
+    const provider = new GoogleAuthProvider();
+
     const { history } = props;
     const [open, setOpen] = useState(false);
 
@@ -48,20 +49,53 @@ export const Login = withRouter((props:SignInProps) => {
         setOpen(true)
     };
 
-    let handleSnackClose = (_event?: React.SyntheticEvent, reason?:string) => {
+    let handleSnackClose = (event?: React.SyntheticEvent, reason?:string) => {
         if(reason === 'clickaway'){
             return
         }
+        
         setOpen(false)
         history.push('/Home')
     };
 
-    const sign_in = async() => {
-        const response = await auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
-        if(response.user){
+    const sign_in = async () => {
+        
+        const response = await signInWithPopup(auth, provider);
+        debugger;
+        const user = response.user;
+        
+        if (user) {
+            // store the user into firebase
+            //after we have the credential - lets check if the user exists in firestore
+            var docRef = doc(firestore, 'users', auth.currentUser.uid);
+            const docSnap = await getDoc(docRef);
+            
+            
+            if (docSnap.exists()) {
+            //user exists then just update the login time
+                return user;
+            } else {
+            //user doesn't exist - create a new user in firestore
+                addNewUserToFirestore(user);
+            }
+            
             handleSnackOpen()
         }
     };
+
+    const addNewUserToFirestore = async ( user: any )  => {
+        const details = {
+          displayName: user.displayName,
+          email: user.email,
+          picture: user.photoURL,
+          lastSignInTime: user.metadata.lastSignInTime
+        };
+
+        // add the user to the db
+        await setDoc(doc(firestore, 'users', auth.currentUser.uid), details); 
+        
+        return {user, details};
+    }
 
     const sign_out = async() => {
         await auth.signOut();

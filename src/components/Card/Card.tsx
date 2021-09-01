@@ -11,7 +11,7 @@ import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import HomeIcon from '@material-ui/icons/Home';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-
+import BookmarkIcon from '@material-ui/icons/BookmarkBorder';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     },
     float: {
         float: 'right',
+    },
+    moreT: {
+        paddingTop: '30px',
+    },
+    wordFont: {
+        fontSize: '18px',
     }
 }))
 
@@ -152,7 +158,15 @@ export const Card = () => {
             console.error('Error: ', error);
         });
 
-    }, [])
+    }, []);
+
+    const handleAddClick = (event: any) => {
+        // get the user id from local storage
+
+        // send a fetch request to the backend to add this card to the user's favorites
+
+        // POST /users/:id/cards
+    }
 
     return (
         <div>
@@ -170,6 +184,11 @@ export const Card = () => {
                     <div className="col-4">
                         <div id="trial">
                             <CardImage/>
+                            <div className={classes.moreT}>
+                            {/* {handleAddClick} */}
+                                <Button className={classes.wordFont} variant="contained" onClick={() => console.log('clicked')} color="primary" type="submit" >Add Card to Account</Button>
+                            </div>
+            
                         </div>
                     </div>
                     <div className="col-4" id="border">

@@ -4,3 +4,4 @@ export * from './Login';
 export * from './User';
 export * from './CardImage';
 export * from './Signup';
+export * from './App';

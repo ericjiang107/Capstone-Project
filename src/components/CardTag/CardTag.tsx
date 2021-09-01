@@ -79,7 +79,7 @@ export const CardTag = () => {
             },
             body: JSON.stringify({ 
                 sort: "ProductName ASC", 
-                limit: 1000, 
+                limit: 10000, 
                 offset: 0, 
                 filters: [
                     {
@@ -95,7 +95,7 @@ export const CardTag = () => {
                 top: 0,
                 behavior: 'smooth',
             });
-            
+
             Promise.all(info.results.map((productId: any) =>
                 fetch(`https://api.tcgplayer.com/catalog/products/${productId}`, {
                     method: 'GET',
@@ -166,6 +166,8 @@ export const CardTag = () => {
                                 <Dropdown.Item eventKey="Blue Storm Armada">Blue Storm Armada</Dropdown.Item>
                                 <Dropdown.Item eventKey="Seal Dragons Unleashed">Seal Dragons Unleashed</Dropdown.Item>
                                 <Dropdown.Item eventKey="Rampage of the Beast King">Rampage of the Beast King</Dropdown.Item>
+                                {/* All set option but it is a lot of information for the database to handle  */}
+                                {/* <Dropdown.Item eventKey="">All Sets</Dropdown.Item> */}
                         </DropdownButton>
                     </ul>
                     <input className="styleSearch" type="text" placeholder="Enter Card Name" onChange={(event) => {setSearchTerm(event.target.value)}}/>
@@ -173,7 +175,7 @@ export const CardTag = () => {
                             Current Set: {Value}
                         </div>
                 </div>
-                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
+                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/login'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </nav>
             </nav>
 

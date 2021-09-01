@@ -2,53 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 // importing routes:
-import { Card, Home, Login, User, CardImage, Signup } from './components';
-// importing Router and Switch functionality:
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { App } from './components';
 // importing firebase:
-import { FirebaseAppProvider, AuthCheck } from 'reactfire'; 
-import 'firebase/auth'; 
 import { firebaseConfig } from './firebaseConfig' 
+import {FirebaseAppProvider } from 'reactfire';
 
 
 ReactDOM.render(
   <React.StrictMode>
       <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      {/* Adding Switch Routes below */}
-        <Router>
-          <Switch>
-
-            {/* Login Page */}
-            <Route exact path ='/'>
-              <Login title={'SCPC'} />
-            </Route>
-
-            {/* Home Page */}
-            <Route path='/Home'>
-              <Home />
-            </Route>
-
-            {/* Card Page */}
-            <Route path='/cards/:productId'>
-              <Card />
-            </Route>
-
-            {/* User Page */}
-            <Route path='/User'>
-              <User />
-            </Route>
-
-            <Route path='/CardImage/:productId'>
-              <CardImage />
-            </Route>
-
-            <Route path='/Signup'>
-              <Signup />
-            </Route>
-
-
-          </Switch>
-        </Router>
+        <App/>
       </FirebaseAppProvider>
   </React.StrictMode>,
   document.getElementById('root')
