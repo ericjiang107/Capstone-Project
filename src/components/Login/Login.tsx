@@ -10,7 +10,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { Snackbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import loginBackground from '../../components/assest/images/show-azusa-the-money.jpg';
+import loginBackground from '../../components/assest/images/show-azusa-the-money.png';
 import { url } from 'inspector';
 
 
@@ -29,13 +29,9 @@ interface SignInProps {
 const useStyles = makeStyles((theme) => ({
     backgroundImage: {
         backgroundImage: `url(${loginBackground})`,
-        width: '100%',
-        height: '100%',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        position: 'absolute',
-        textAlign: 'center',
+        objectFit: 'cover',
+        width: '50px',
+        height: '720px',
         zIndex: -1,
     },
     colors: {
@@ -45,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1.7),
         borderRadius: 8,
         padding: '10px', 
-        width: '40%',
+        width: '100%',
         fontSize: '17px',
         '&:hover': {
             backgroundColor: '#fff',
@@ -122,34 +118,27 @@ export const Login = withRouter((props:SignInProps) => {
     }
 
     return (
-            <div className="container">
-                <div className="row justify-content-center">
-                    {/* <div className="col-lg-12 col-md-6">
-                        <div className={classes.colors}>
-                            <div className="Extra">
-                                <h1>Single Card Price Checker</h1>
-                            </div>
-                        </div>
-                    </div> */}
+        <div className="row justify-content-center">
+            <div className="col-lg-12 col-md-6">
+                <div className={classes.colors}>
+                    <div className="Extra">
+                        <h1>Single Card Price Checker</h1>
+                    </div>
                 </div>
-                <div className={classes.backgroundImage} id="creation">
-                                
-                </div>
-                        {/* <div id="align">
-                            <AuthCheck fallback={
-                                <Button className={classes.buttonStyle} onClick={sign_in}>Sign In With Google</Button>
-                                }>
-                                <Button color='primary' onClick={sign_out}>Sign Out</Button>
-                            </AuthCheck>
-                        </div>
-                        
+            </div>
+            <div id="align">
+                        <AuthCheck fallback={
+                            <Button className={classes.buttonStyle} onClick={sign_in}>Sign In With Google</Button>
+                        }>
+                            <Button color='primary' onClick={sign_out}>Sign Out</Button>
+                        </AuthCheck>
                         <Snackbar message={'Success'} open={open} autoHideDuration={3000} onClose={handleSnackClose}>
                             <Alert onClose={handleSnackClose} severity="success">
                                 Successful Sign In - Redirect in 3 secs
                             </Alert>
-                        </Snackbar> */}
+                        </Snackbar>
             </div>
-
-                
+            <div className={classes.backgroundImage} id="creation"></div>
+        </div>          
     )
 })
