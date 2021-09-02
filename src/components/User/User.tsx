@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         float: 'right',
     },
     style: {
-        padding: '50px',
+        padding: '20px',
     }
 }))
 
@@ -87,6 +87,8 @@ export const User = () => {
 
         // update user doc in firestore to remove card from favs
         await updateDoc(doc(firestore, 'users', userId), { favorites: arrayRemove(cardId)});
+    
+        alert("Success! Card removed from your account")
     };
 
     
@@ -102,10 +104,16 @@ export const User = () => {
                 </div>
             </nav>
             <div className={classes.padding}>
-                <div className={classes.style}>
+                {/* <div className={classes.style}> */}
+                <div className="row justify-content-start">
+                    <div className="col-4">
                     Welcome, {user.displayName}
+                    <br></br>
+                    {user.email}
                 </div>
-            </div>
+                </div>
+                </div>
+            {/* </div> */}
             <div className="divSpecify">
                     {
                         cards.length > 0 ?

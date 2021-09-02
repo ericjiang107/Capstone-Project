@@ -1,6 +1,6 @@
 import React from 'react';
 // importing routes:
-import { Card, Home, Login, User, CardImage, Signup } from '..';
+import { Card, Home, Login, User, CardImage } from '..';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { FirestoreProvider, AuthProvider, useFirebaseApp } from 'reactfire';
@@ -37,10 +37,6 @@ export const App = () => {
 
               <Route path='/CardImage/:productId'>
                 <CardImage />
-              </Route>
-
-              <Route path='/Signup'>
-                <Signup />
               </Route>
             </Switch>
           </Router>

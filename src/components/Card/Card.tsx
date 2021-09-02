@@ -12,7 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import BookmarkIcon from '@material-ui/icons/BookmarkBorder';
-
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { useAuth, useFirestore } from 'reactfire';
 import { doc, updateDoc, arrayUnion } from '@firebase/firestore';
 
@@ -73,7 +73,10 @@ export const Card = () => {
     const [cardTrigger, setCardTrigger] = useState();
     const [cardFlavor, setCardFlavor] = useState();
 
-
+    const Alert = (props:AlertProps) => {
+        return <MuiAlert elevation={6} variant='filled' {...props} />;
+    }
+    
     const [data, setData] = useState([
         // test sample data
         {
@@ -109,17 +112,17 @@ export const Card = () => {
             // console.log(info)
             setCardImage(info.results[0].imageUrl)
             setCardName(info.results[0].name)
-            setCardEffect(info.results[0].extendedData[10].value)
-            setCardUnit(info.results[0].extendedData[2].value)
-            setCardGrade(info.results[0].extendedData[3].value)
-            setCardSkill(info.results[0].extendedData[4].value)
-            setCardNation(info.results[0].extendedData[5].value)
-            setCardRace(info.results[0].extendedData[6].value)
-            setCardPower(info.results[0].extendedData[7].value)
-            setCardShield(info.results[0].extendedData[8].value)
-            setCardCric(info.results[0].extendedData[9].value)
-            setCardTrigger(info.results[0].extendedData[10].value)
-            setCardFlavor(info.results[0].extendedData[12].value)
+            // setCardEffect(info.results[0].extendedData[12].value)
+            // setCardUnit(info.results[0].extendedData[2].value)
+            // setCardGrade(info.results[0].extendedData[3].value)
+            // setCardSkill(info.results[0].extendedData[4].value)
+            // setCardNation(info.results[0].extendedData[5].value)
+            // setCardRace(info.results[0].extendedData[6].value)
+            // setCardPower(info.results[0].extendedData[9].value)
+            // setCardShield(info.results[0].extendedData[10].value)
+            // setCardCric(info.results[0].extendedData[11].value)
+            // setCardTrigger(info.results[0].extendedData[10].value)
+            // setCardFlavor(info.results[0].extendedData[13].value)
             console.log(info.results[0].extendedData)
             
         })
@@ -172,7 +175,8 @@ export const Card = () => {
 
         // add card id to current user's favs
         await updateDoc(doc(firestore, "users", userId), { favorites: arrayUnion(cardId)});
-
+        
+        alert("Success! Card added")
     }
 
     return (
@@ -192,9 +196,9 @@ export const Card = () => {
                         <div id="trial">
                             <CardImage/>
                             <div className={classes.moreT}>
-                            {/* {handleAddClick} */}
-                                <Button className={classes.wordFont} variant="contained" onClick={handleAddClick} color="secondary" type="submit" >Add Card to Account</Button>
+                                <Button  className={classes.wordFont} variant="contained" onClick={handleAddClick} color="secondary" type="submit" >Add Card to Account</Button>
                             </div>
+                            {/* <Alert severity="success"> This card has been added to your account! </Alert> */}
             
                         </div>
                     </div>
@@ -239,14 +243,14 @@ export const Card = () => {
                             </div>
                             <div className="moreAdding">
                                 <h5 className="botPadding">{ cardName }</h5>
-                                <div className="fontSize" >
+                                {/* <div className="fontSize" >
                                     <p className=""> <span className="boldStyle">Skill:</span> { cardEffect } </p>
                                 </div>
                                 <p className=""> Unit/Grade/Skill: { cardUnit } / { cardGrade } / { cardSkill }</p>
                                 <p> Nation/Race: { cardNation } / { cardRace }</p>
                                 <p> Power/Shield: { cardPower } / { cardShield } </p>
                                 <p> Critical/Trigger: { cardCric } / { cardTrigger } </p>
-                                <p> Flavor: { cardFlavor } </p>
+                                <p> Flavor: { cardFlavor } </p> */}
                             </div>
                         </div>
                     </div>

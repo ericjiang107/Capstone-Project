@@ -85,6 +85,7 @@ export const Login = withRouter((props:SignInProps) => {
         }
     };
 
+    // Firestore connection 
     const addNewUserToFirestore = async ( user: any )  => {
         const details = {
           displayName: user.displayName,
@@ -117,9 +118,9 @@ export const Login = withRouter((props:SignInProps) => {
                             <Button color='primary' onClick={sign_out}>Sign Out</Button>
                         </AuthCheck>
                     </div>
-                    <Snackbar message={'Success'} open={open} autoHideDuration={5000} onClose={handleSnackClose}>
+                    <Snackbar message={'Success'} open={open} autoHideDuration={3000} onClose={handleSnackClose}>
                         <Alert onClose={handleSnackClose} severity="success">
-                            Successful Sign In - Redirect in 5 secs
+                            Successful Sign In - Redirect in 3 secs
                         </Alert>
                     </Snackbar>
         </div>
