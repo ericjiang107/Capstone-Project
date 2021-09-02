@@ -42,3 +42,8 @@ Added window.scrollTo function to allow for smoother transisiton when switching 
 Struggling to figure out way to connect front end to back end using either React or Flask. Figured out that I can connect backend and frontend via 
 Firestore since we are using Google authentication. Still accounting errors (again with firebase...) seems like to be able to connect both, we will
 have to update firebase to it's newest version. 
+
+**`Day 9:`** 
+Connected firestore backend to react frontend to access user Name. Solution: continued looking for documentation from the firestore site.
+Created function to add card (productId) to firestore and store data. Then connected that data to User page and showcase the parsed productId 
+card image and name. Also created a remove function which does the same thing as adding the card. 
