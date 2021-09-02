@@ -17,6 +17,16 @@
     padding-top: 15px;
 }
 
-.container {
-    padding-top: 100px;
+/* .container {
+    padding-top: 250px;
+} */
+
+.Extra {
+    text-align: center;
+}
+
+#creation {
+    width: 100%;
+    max-height: 75%;
+    text-align: center;
 }

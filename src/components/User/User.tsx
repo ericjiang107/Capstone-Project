@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import {Spinner} from 'react-bootstrap';
-
+import './User.css'
 import { doc, getDoc, updateDoc, arrayRemove, onSnapshot } from '@firebase/firestore';
 import { useFirestore, useAuth } from 'reactfire';
 
@@ -35,6 +35,17 @@ const useStyles = makeStyles((theme) => ({
     },
     style: {
         padding: '20px',
+    },
+    buttonStyle: {
+        backgroundColor: 'red',
+        color: 'white',
+    },
+    bottom: {
+        paddingBottom: '10px',
+    },
+    down: {
+        paddingBottom: '10px',
+        paddingTop: '10px'
     }
 }))
 
@@ -44,6 +55,7 @@ export const User = () => {
     const [user, setUser] = useState({} as any);
     const [cards, setCards] = useState([]);
     const classes = useStyles();
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         // fetch user's info from firestore
@@ -92,7 +104,6 @@ export const User = () => {
     };
 
     
-
     return (
         <div>
             <nav className={classes.sticky}>
@@ -102,42 +113,58 @@ export const User = () => {
                 <div className={classes.float}>
                     <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </div>
+                <input className="filter" type="text" placeholder="Enter Card Name" onChange={(event) => {setSearchTerm(event.target.value)}}/>
             </nav>
             <div className={classes.padding}>
                 {/* <div className={classes.style}> */}
                 <div className="row justify-content-start">
                     <div className="col-4">
-                    Welcome, {user.displayName}
+                    <img className={classes.down} src={user.picture}></img>
                     <br></br>
-                    {user.email}
-                </div>
-                </div>
-                </div>
-            {/* </div> */}
-            <div className="divSpecify">
-                    {
-                        cards.length > 0 ?
-                        <div className="row test2"> 
-                            {cards.map((card, index) =>
-                                <div className="col-3 test">
-                                    <Link to={`/cards/${card.id}`}>
-                                        <img className="spacingTop" key={index} src={card.imgUrl}></img>
-                                        <div className="spacing">
-                                            {card.cardName}
+                        Welcome, {user.displayName}
+                        <br></br>
+                        {user.email}
+                    </div>
+                    <div className="col-8">
+                        <div className="divSpecify">
+                            {
+                                cards.length > 0 ?
+                                <div className="row test2" id="test"> 
+                                 {cards.filter((card) => {
+                                    if(searchTerm == '') {
+                                        return card
+                                    } else if (card.cardName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                                        return card
+                                    }
+                                })
+                                    .map((card, index) =>
+                                        <div className="col-3 test">
+                                            <Link to={`/cards/${card.id}`}>
+                                                <div className="center">
+                                                    <img className="spacingTop" key={index} src={card.imgUrl}></img>
+                                                    <div className="text">
+                                                        {card.cardName}
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                            <div className={classes.bottom}>
+                                                <Button className={classes.buttonStyle} onClick={() => handleRemoveClick(card.id)}>Remove</Button>
+                                            </div>
                                         </div>
-                                    </Link>
-                                    <Button onClick={() => handleRemoveClick(card.id)}>Remove</Button>
+                                    )}
                                 </div>
-                            )}
+                                : // else
+                                <div>
+                                    <div className="fonty">
+                                        No Cards Added...
+                                    </div>
+                                </div>
+                            } 
                         </div>
-                        : // else
-                        <div>
-                            <div className="fonty">
-                                No Cards Added...
-                            </div>
-                        </div>
-                    } 
+                    </div>
+                </div>
             </div>
+            {/* </div> */}
         </div>
     )
 }

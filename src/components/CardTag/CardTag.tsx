@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-export const CardTag = () => {
+export const CardTag = (props: any) => {
     const classes = useStyles();
     const [allProductId, setAllProductId] = useState([]);
     const [cards, setCards] = useState([]);
@@ -79,7 +79,7 @@ export const CardTag = () => {
             },
             body: JSON.stringify({ 
                 sort: "ProductName ASC", 
-                limit: 10000, 
+                limit: 1000, 
                 offset: 0, 
                 filters: [
                     {
@@ -136,6 +136,7 @@ export const CardTag = () => {
                 <div className="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul className="navbar-nav">
                      <DropdownButton
+                        onClick={() => {console.log("clicked")}}
                         alignRight
                         title="Other Sets"
                         id="dropdown-menu-align-right"
@@ -165,7 +166,12 @@ export const CardTag = () => {
                                 <Dropdown.Item eventKey="Infinite Rebirth">Infinite Rebirth</Dropdown.Item>
                                 <Dropdown.Item eventKey="Blue Storm Armada">Blue Storm Armada</Dropdown.Item>
                                 <Dropdown.Item eventKey="Seal Dragons Unleashed">Seal Dragons Unleashed</Dropdown.Item>
-                                <Dropdown.Item eventKey="Rampage of the Beast King">Rampage of the Beast King</Dropdown.Item>
+                                <Dropdown.Item eventKey="Eclipse of Illusionary Shadows">Eclipse of Illusionary Shadows</Dropdown.Item>
+                                <Dropdown.Item eventKey="Demonic Lord Invasion">Demonic Lord Invasion</Dropdown.Item>
+                                <Dropdown.Item eventKey="Onslaught of Dragon Souls">Onslaught of Dragon Souls</Dropdown.Item>
+                                <Dropdown.Item eventKey="Catastrophic Outbreak">Catastrophic Outbreak</Dropdown.Item>
+                                <Dropdown.Item eventKey="V-EB07: The Heroic Evolution">V-EB07: The Heroic Evolution</Dropdown.Item>
+                                <Dropdown.Item eventKey="V-EB10: The Mysterious Fortune">V-EB10: The Mysterious Fortune</Dropdown.Item>
                                 {/* All set option but it is a lot of information for the database to handle  */}
                                 {/* <Dropdown.Item eventKey="">All Sets</Dropdown.Item> */}
                         </DropdownButton>
@@ -192,9 +198,11 @@ export const CardTag = () => {
                             }).map((card, index) =>
                                 <div className="col-3 test">
                                     <Link to={`/cards/${card.id}`}>
-                                        <img className="spacingTop" key={index} src={card.imgUrl}></img>
-                                        <div className="spacing">
-                                            {card.cardName}
+                                        <div className="center">
+                                            <img className="spacingTop" key={index} src={card.imgUrl}></img>
+                                            <div className="spacing">
+                                                {card.cardName}
+                                            </div>
                                         </div>
                                     </Link>
                                 </div>

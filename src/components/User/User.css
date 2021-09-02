@@ -1,0 +1,15 @@
+#test {
+    float: left;
+}
+
+.text {
+    font-size: 18px;
+    padding-top: 7px;
+}
+
+.filter {
+    width: 30%;
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 10px;
+}

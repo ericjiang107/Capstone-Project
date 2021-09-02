@@ -53,3 +53,12 @@
 .fonty {
     font-size: 25px;
 }
+
+.dropdown-menu {
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.center {
+    text-align: center;
+}
