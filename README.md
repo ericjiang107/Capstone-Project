@@ -47,3 +47,7 @@ have to update firebase to it's newest version.
 Connected firestore backend to react frontend to access user Name. Solution: continued looking for documentation from the firestore site.
 Created function to add card (productId) to firestore and store data. Then connected that data to User page and showcase the parsed productId 
 card image and name. Also created a remove function which does the same thing as adding the card. 
+
+**`Day 10:`**
+Wanted to make improvements to the website such as adding a background to the login page, improve on the filter system, make the dropdown menu scrollable,
+and more. Still working on it but it seems to be more of styling than creating fucntions for some of these. 
