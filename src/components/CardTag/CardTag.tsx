@@ -9,6 +9,8 @@ import { setConstantValue } from 'typescript';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Spinner } from 'react-bootstrap';
+import { SettingsPhoneTwoTone } from '@material-ui/icons';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 3,
         fontSize: '17px',
         '&:hover': {
-
             backgroundColor: '#fff',
             color: '#3c52b2',
     },
@@ -28,25 +29,19 @@ const useStyles = makeStyles((theme) => ({
         zIndex: 100,
         width: '100%',
         background: '#e0e0e0'
-    },
+},
     padding: {
         paddingTop: '80px'
-    },
+},
     sticky2: {
         padding: '20px',
         fontSize: '18px',
-    },
+},
     test2: {
         padding: '10px',
-        paddingRight: '20px'
-    },
-    // topScreen: {
-    //     window.scroll({
-    //         top: 0,
-    //         left: 0,
-    //         behavior: 'smooth'
-    //     })
-    // }
+        paddingRight: '20px',
+},
+
 }))
 
 
@@ -66,6 +61,19 @@ export const CardTag = (props: any) => {
         setTest(e)
         console.log(test)
     };
+
+    // make Dropdown button hoverable
+    const [show, setShow] = useState(false);
+    const showDropdown = () => {
+        setShow(!show);
+    };
+    const hideDropdown = () => {
+        setShow(false);
+    };
+
+    // make background darker when Dropdown menu is hovered
+    
+
 
     useEffect(() => {
 
@@ -140,8 +148,11 @@ export const CardTag = (props: any) => {
                         alignRight
                         title="Other Sets"
                         id="dropdown-menu-align-right"
-                        className={classes.test2}
+                        className={`${classes.test2}`}
                         onSelect={handleSelect}
+                        show={show}
+                        onMouseEnter={showDropdown}
+                        onMouseLeave={hideDropdown}
                             >
                                 <Dropdown.Item eventKey="A Brush with the Legends">A Brush with the Legends</Dropdown.Item>
                                 <Dropdown.Item eventKey="Genesis of the Five Greats">Genesis of the Five Greats</Dropdown.Item>
@@ -181,6 +192,7 @@ export const CardTag = (props: any) => {
                             Current Set: {Value}
                         </div>
                 </div>
+                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/AboutMe'} startIcon={<InfoIcon style={{ fontSize: 25 }}/>} >More Info</Button>
                 <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </nav>
             </nav>

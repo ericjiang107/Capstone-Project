@@ -8,6 +8,7 @@ import {Spinner} from 'react-bootstrap';
 import './User.css'
 import { doc, getDoc, updateDoc, arrayRemove, onSnapshot } from '@firebase/firestore';
 import { useFirestore, useAuth } from 'reactfire';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -111,6 +112,7 @@ export const User = () => {
                 {/* <Button className={classes.button} variant="contained" type="submit" component={Link} to={'/User'} >My Account</Button> */}
                 <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/Home'} startIcon={<HomeIcon style={{ fontSize: 25 }}/>} >Home</Button>
                 <div className={classes.float}>
+                    <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/AboutMe'} startIcon={<InfoIcon style={{ fontSize: 25 }}/>} >More Info</Button>
                     <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </div>
                 <input className="filter" type="text" placeholder="Enter Card Name" onChange={(event) => {setSearchTerm(event.target.value)}}/>

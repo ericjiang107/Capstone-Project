@@ -1,0 +1,45 @@
+#padding {
+    padding-top: 40px;
+}
+
+#padding2 {
+    padding-top: 20px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+#border {
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+
+#padding3 {
+    padding-top: 70px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+
+#padding4 {
+    padding-top: 50px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+#padding5 {
+    padding-top: 150px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+#padding6 {
+    padding-top: 100px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
+#finalPadding {
+    padding-top: 50px;
+}

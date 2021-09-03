@@ -15,6 +15,7 @@ import BookmarkIcon from '@material-ui/icons/BookmarkBorder';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import { useAuth, useFirestore } from 'reactfire';
 import { doc, updateDoc, arrayUnion } from '@firebase/firestore';
+import InfoIcon from '@material-ui/icons/Info';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -227,6 +228,7 @@ export const Card = () => {
                 <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/User'} startIcon={<AccountBoxIcon style={{ fontSize: 25 }}/>} >My Account</Button>
                 <Button className={classes.button} variant="contained" color="primary" type="submit" component={Link} to={'/Home'} startIcon={<HomeIcon style={{ fontSize: 25 }}/>} >Home</Button>
                 <div className={classes.float}>
+                <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/AboutMe'} startIcon={<InfoIcon style={{ fontSize: 25 }}/>} >More Info</Button>
                     <Button className={`${classes.button}`} variant="contained" color="primary" type="submit" component={Link} to={'/'} startIcon={<ExitToAppIcon style={{ fontSize: 25 }}/>} >Sign Out</Button>
                 </div>
             </nav>

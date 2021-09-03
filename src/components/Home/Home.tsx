@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { CardTag } from '../CardTag';
 import { makeStyles } from '@material-ui/core/styles';
+import InfoIcon from '@material-ui/icons/Info';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +21,7 @@ export const Home = () => {
         <div>
             <div className={classes.padding}>
                 <div className="container-fluid px-0">
-                    <CardTag/>
+                    <CardTag />
                 </div>
             </div>
         </div>
