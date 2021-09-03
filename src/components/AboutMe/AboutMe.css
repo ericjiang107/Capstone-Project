@@ -40,6 +40,12 @@
     border-radius: 10px;
 }
 
+#padding7 {
+    padding-top: 110px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+}
+
 #finalPadding {
     padding-top: 50px;
 }

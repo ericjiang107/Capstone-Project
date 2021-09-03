@@ -187,7 +187,7 @@ export const AboutMe = () => {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            <div className="col-4" id="padding6">
+                            <div className="col-4" id="padding7">
                                 <h3><em><u>Day 11:</u></em></h3>
                             </div>
                             <div className="col-4" id="border">
