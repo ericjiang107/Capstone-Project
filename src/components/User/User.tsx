@@ -9,6 +9,7 @@ import './User.css'
 import { doc, getDoc, updateDoc, arrayRemove, onSnapshot } from '@firebase/firestore';
 import { useFirestore, useAuth } from 'reactfire';
 import InfoIcon from '@material-ui/icons/Info';
+import { ScrollBar } from '../ScrollBar';
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -167,6 +168,7 @@ export const User = () => {
                 </div>
             </div>
             {/* </div> */}
+            <ScrollBar />
         </div>
     )
 }

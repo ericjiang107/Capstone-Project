@@ -11,6 +11,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import { Spinner } from 'react-bootstrap';
 import { SettingsPhoneTwoTone } from '@material-ui/icons';
 import InfoIcon from '@material-ui/icons/Info';
+import { ScrollBar } from '../ScrollBar';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -231,6 +232,7 @@ export const CardTag = (props: any) => {
                         </div>
                     } 
             </div>
+            <ScrollBar />
         </div>
     )
 }

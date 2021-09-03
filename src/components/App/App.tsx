@@ -1,6 +1,6 @@
 import React from 'react';
 // importing routes:
-import { Card, Home, Login, User, CardImage, AboutMe } from '..';
+import { Card, Home, Login, User, CardImage, AboutMe, ScrollBar } from '..';
 // importing Router and Switch functionality:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { FirestoreProvider, AuthProvider, useFirebaseApp } from 'reactfire';
@@ -44,6 +44,10 @@ export const App = () => {
               {/* About Me Page */}
               <Route path='/aboutMe'>
                 <AboutMe />
+              </Route>
+
+              <Route path='/ScrollBar'>
+                <ScrollBar />
               </Route>
 
             </Switch>

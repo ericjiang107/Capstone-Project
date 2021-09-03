@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +7,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import './AboutMe.css';
 import HomeIcon from '@material-ui/icons/Home';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { ScrollBar } from '../ScrollBar';
 
 const useStyles = makeStyles((theme) => ({
     center: {
@@ -59,7 +60,11 @@ const useStyles = makeStyles((theme) => ({
     float: {
         float: 'right',
     },
+    arrow: {
+        float: 'right',
+    }
 }))
+
 
 export const AboutMe = () => {
     const classes = useStyles()
@@ -181,9 +186,18 @@ export const AboutMe = () => {
                                 <p>Wanted to make improvements to the website such as adding a background to the login page, improve on the filter system, make the dropdown menu scrollable, and more. Still working on it but it seems to be more of styling than creating fucntions for some of these. Added filter option to the "My Account" page so if the user has a lot of cards bookmarked, they can easily find the cards they are looking for. Updated login Page visual. Reason why I cannot add a filter all search bar if the user knows the name but doesn't know the set the card comes in is because the database only allows up to 300 request per minute.</p>
                             </div>
                         </div>
+                        <div className="row justify-content-center">
+                            <div className="col-4" id="padding2">
+                                <h3><em><u>Day 11:</u></em></h3>
+                            </div>
+                            <div className="col-4" id="border">
+                                <p>Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <ScrollBar />
         </div>
     )
 }
