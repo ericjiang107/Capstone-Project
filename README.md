@@ -56,4 +56,5 @@ filter all search bar if the user knows the name but doesn't know the set the ca
 
 **`Day 11:`**
 Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly. Added scroll to top window component and styled it to 
-fit to the bottom right corner. Attached the component to both the Home, My Account, and More Info pages. 
+fit to the bottom right corner. Attached the component to both the Home, My Account, and More Info pages. Added dimmer to background upon dropdown menu hover. 
+Finally, this project is complete (at least to what I'm able to accomplish so far). Deployed the project via firebase. 
