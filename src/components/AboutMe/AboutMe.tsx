@@ -187,11 +187,11 @@ export const AboutMe = () => {
                             </div>
                         </div>
                         <div className="row justify-content-center">
-                            <div className="col-4" id="padding2">
+                            <div className="col-4" id="padding6">
                                 <h3><em><u>Day 11:</u></em></h3>
                             </div>
                             <div className="col-4" id="border">
-                                <p>Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly.</p>
+                                <p>Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly. Added scroll to top window component and styled it to fit to the bottom right corner. Attached the component to both the Home, My Account, and More Info pages. Added dimmer to background upon dropdown menu hover. Finally, this project is complete (at least to what I'm able to accomplish so far). Deployed the project via firebase.</p>
                             </div>
                         </div>
                     </div>
