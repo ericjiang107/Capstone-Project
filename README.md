@@ -55,4 +55,5 @@ so if the user has a lot of cards bookmarked, they can easily find the cards the
 filter all search bar if the user knows the name but doesn't know the set the card comes in is because the database only allows up to 300 request per minute. 
 
 **`Day 11:`**
-Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly. 
+Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly. Added scroll to top window component and styled it to 
+fit to the bottom right corner. Attached the component to both the Home, My Account, and More Info pages. 
