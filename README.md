@@ -53,3 +53,6 @@ Wanted to make improvements to the website such as adding a background to the lo
 and more. Still working on it but it seems to be more of styling than creating fucntions for some of these. Added filter option to the "My Account" page
 so if the user has a lot of cards bookmarked, they can easily find the cards they are looking for. Updated login Page visual. Reason why I cannot add a 
 filter all search bar if the user knows the name but doesn't know the set the card comes in is because the database only allows up to 300 request per minute. 
+
+**`Day 11:`**
+Successfully added AboutMe page to the site. Double checked routes. Everything seems to work smoothly. 
