@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
         padding: '10px',
         paddingRight: '20px',
 },
-
 }))
 
 
@@ -63,21 +62,24 @@ export const CardTag = (props: any) => {
         console.log(test)
     };
 
+    // Dropdown menu hover darken background
+    const [background, setBackground] = useState('');
+
     // make Dropdown button hoverable
     const [show, setShow] = useState(false);
     const showDropdown = () => {
-        setShow(!show);
+        setShow(true);
+        // Adding class 
+        setBackground('overlay')
+        console.log(background)
     };
     const hideDropdown = () => {
         setShow(false);
+        setBackground('')
+        console.log(background)
     };
 
-    // make background darker when Dropdown menu is hovered
-    
-
-
     useEffect(() => {
-
         // returns all product id by set name
         fetch(`https://api.tcgplayer.com/catalog/categories/16/search`, {
             method: 'POST',
@@ -198,6 +200,7 @@ export const CardTag = (props: any) => {
                 </nav>
             </nav>
 
+            <div className={background}></div>
             <div className="divSpecify">
                     {
                         cards.length > 0 ?
@@ -212,7 +215,7 @@ export const CardTag = (props: any) => {
                                 <div className="col-3 test">
                                     <Link to={`/cards/${card.id}`}>
                                         <div className="center">
-                                            <img className="spacingTop" key={index} src={card.imgUrl}></img>
+                                                <img id="spacingTop" key={index} src={card.imgUrl}></img>
                                             <div className="spacing">
                                                 {card.cardName}
                                             </div>

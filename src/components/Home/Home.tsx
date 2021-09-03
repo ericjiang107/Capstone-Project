@@ -9,7 +9,7 @@ import InfoIcon from '@material-ui/icons/Info';
 const useStyles = makeStyles((theme) => ({
     padding: {
         paddingTop: '80px'
-    }
+    },
 }))
 
 
@@ -19,7 +19,7 @@ export const Home = () => {
 
     return (
         <div>
-            <div className={classes.padding}>
+            <div className={`${classes.padding}`}>
                 <div className="container-fluid px-0">
                     <CardTag />
                 </div>
