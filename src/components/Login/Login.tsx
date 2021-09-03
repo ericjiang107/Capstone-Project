@@ -96,6 +96,7 @@ export const Login = withRouter((props:SignInProps) => {
             
             handleSnackOpen();
         }
+        console.log(user)
     };
 
     // Firestore connection 
