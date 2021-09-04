@@ -59,8 +59,10 @@ Successfully added AboutMe page to the site. Double checked routes. Everything s
 fit to the bottom right corner. Attached the component to both the Home, My Account, and More Info pages. Added dimmer to background upon dropdown menu hover. 
 Finally, this project is complete (at least to what I'm able to accomplish so far). Deployed the project via firebase. 
 
-## Navigating the Site: 
 <br />
+## Navigating the Site: 
+
 **`Access the site at: https://scpc-c42d9.web.app/`** 
+
 ![Capstone](https://user-images.githubusercontent.com/85653283/132105890-bc02cbbf-45a8-42c8-a74b-fba3cf99fa24.JPG)
 
