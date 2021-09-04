@@ -82,3 +82,32 @@ Finally, this project is complete (at least to what I'm able to accomplish so fa
 
 ![capstone4](https://user-images.githubusercontent.com/85653283/132106123-88cd997c-18d9-4018-a508-90dc367e15e6.JPG)
 
+
+
+**`To view card details, simply click on a card"`** 
+
+![capstone5](https://user-images.githubusercontent.com/85653283/132106167-8a27d944-d0f9-4f76-bafd-a23991c4b270.JPG)
+
+
+**`To Add a Card to your account, click "Add Card To Account"`**
+
+![capstone6](https://user-images.githubusercontent.com/85653283/132106199-efe69926-8474-4dbc-88a9-9f0f15c44429.JPG)
+
+
+**`Click on "My Account" to see your info and what cards you have added`**
+
+![capstone7](https://user-images.githubusercontent.com/85653283/132106221-1937cb7f-09c2-4979-be39-9fbfb7b5d179.JPG)
+
+
+**`To Remove a Card from your account, click "Remove"`**
+
+![capstone8](https://user-images.githubusercontent.com/85653283/132106237-652c15bd-bd0b-4d89-b0c7-9d6a8c3baeaf.JPG)
+
+
+**`To See more information about this project, click on "More Info"`**
+
+![capstone9](https://user-images.githubusercontent.com/85653283/132106264-c823781f-acca-4f89-971f-b0d3670bf7af.JPG)
+
+
+
+**`To Sign Out, simply click "Sign Out" which will bring you back to the main login page`**
