@@ -68,7 +68,6 @@ Finally, this project is complete (at least to what I'm able to accomplish so fa
 ![Capstone](https://user-images.githubusercontent.com/85653283/132105890-bc02cbbf-45a8-42c8-a74b-fba3cf99fa24.JPG)
 
 <br />
-
 **`Login with your Google Account in Popup`** 
 
 ![capstone2](https://user-images.githubusercontent.com/85653283/132105945-cd131595-7157-438b-9031-8bd55a6ae30d.JPG)
