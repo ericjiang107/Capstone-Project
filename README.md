@@ -60,9 +60,25 @@ fit to the bottom right corner. Attached the component to both the Home, My Acco
 Finally, this project is complete (at least to what I'm able to accomplish so far). Deployed the project via firebase. 
 
 <br />
+
 ## Navigating the Site: 
 
 **`Access the site at: https://scpc-c42d9.web.app/`** 
 
 ![Capstone](https://user-images.githubusercontent.com/85653283/132105890-bc02cbbf-45a8-42c8-a74b-fba3cf99fa24.JPG)
+
+
+**`Login with your Google Account in Popup`** 
+
+![capstone2](https://user-images.githubusercontent.com/85653283/132105945-cd131595-7157-438b-9031-8bd55a6ae30d.JPG)
+
+
+**`Once Signed in, browse the cards you wish to look for either with the filter search bar or scrolling`** 
+
+![capstone3](https://user-images.githubusercontent.com/85653283/132105981-233f6513-2339-4224-8edb-762b838b23db.JPG)
+
+
+**`To select a different set, hover over "Other Sets"`** 
+
+![capstone4](https://user-images.githubusercontent.com/85653283/132106123-88cd997c-18d9-4018-a508-90dc367e15e6.JPG)
 
