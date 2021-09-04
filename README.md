@@ -67,47 +67,54 @@ Finally, this project is complete (at least to what I'm able to accomplish so fa
 
 ![Capstone](https://user-images.githubusercontent.com/85653283/132105890-bc02cbbf-45a8-42c8-a74b-fba3cf99fa24.JPG)
 
+<br />
 
 **`Login with your Google Account in Popup`** 
 
 ![capstone2](https://user-images.githubusercontent.com/85653283/132105945-cd131595-7157-438b-9031-8bd55a6ae30d.JPG)
 
+<br />
 
 **`Once Signed in, browse the cards you wish to look for either with the filter search bar or scrolling`** 
 
 ![capstone3](https://user-images.githubusercontent.com/85653283/132105981-233f6513-2339-4224-8edb-762b838b23db.JPG)
 
+<br />
 
 **`To select a different set, hover over "Other Sets"`** 
 
 ![capstone4](https://user-images.githubusercontent.com/85653283/132106123-88cd997c-18d9-4018-a508-90dc367e15e6.JPG)
 
-
+<br />
 
 **`To view card details, simply click on a card"`** 
 
 ![capstone5](https://user-images.githubusercontent.com/85653283/132106167-8a27d944-d0f9-4f76-bafd-a23991c4b270.JPG)
 
+<br />
 
 **`To Add a Card to your account, click "Add Card To Account"`**
 
 ![capstone6](https://user-images.githubusercontent.com/85653283/132106199-efe69926-8474-4dbc-88a9-9f0f15c44429.JPG)
 
+<br />
 
 **`Click on "My Account" to see your info and what cards you have added`**
 
 ![capstone7](https://user-images.githubusercontent.com/85653283/132106221-1937cb7f-09c2-4979-be39-9fbfb7b5d179.JPG)
 
+<br />
 
 **`To Remove a Card from your account, click "Remove"`**
 
 ![capstone8](https://user-images.githubusercontent.com/85653283/132106237-652c15bd-bd0b-4d89-b0c7-9d6a8c3baeaf.JPG)
 
+<br />
 
 **`To See more information about this project, click on "More Info"`**
 
 ![capstone9](https://user-images.githubusercontent.com/85653283/132106264-c823781f-acca-4f89-971f-b0d3670bf7af.JPG)
 
-
+<br />
 
 **`To Sign Out, simply click "Sign Out" which will bring you back to the main login page`**
